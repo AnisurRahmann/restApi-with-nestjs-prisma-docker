@@ -6,6 +6,7 @@
     "dist",
     "**/*spec.ts",
     "products.ts",
+    "prisma",
     "prisma"
   ]
 }
