@@ -20,6 +20,10 @@ export class ProductsService {
     return this.prisma.product.findUnique({ where: { id } });
   }
 
+  async findPage(){
+    // TODO: Implement cursor-base pagination
+  }
+
   findDrafts() {
     return this.prisma.product.findMany({ where: { published: false } });
   }

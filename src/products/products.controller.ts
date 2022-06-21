@@ -42,8 +42,12 @@ export class ProductsController {
   @Get(":id")
   @ApiOkResponse({ type: ProductEntity })
   async findOne(@Param("id") id: string) {
-    console.log(typeof id, "ProductEntity");
     return new ProductEntity(await this.productsService.findOne(id));
+  }
+
+  @Get('page')
+  async findPage(){
+    return this.productsService.findPage()
   }
 
   @Patch(":id")
