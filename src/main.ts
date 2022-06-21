@@ -8,7 +8,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // binds ValidationPipe to the entire application.
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    })
+  );
 
   // apply transform to all changes
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
