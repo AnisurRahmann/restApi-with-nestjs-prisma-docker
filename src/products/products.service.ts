@@ -15,22 +15,23 @@ export class ProductsService {
     return this.prisma.product.findMany({ where: { published: false } });
   }
 
-  findOne(id: number) {
-    return this.prisma.product.findUnique({ where: { id: id } });
+  findOne(id: string) {
+    console.log(id, "findOne");
+    return this.prisma.product.findUnique({ where: { id } });
   }
 
   findDrafts() {
     return this.prisma.product.findMany({ where: { published: false } });
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
+  update(id: string, updateProductDto: UpdateProductDto) {
     return this.prisma.product.update({
       where: { id: id },
       data: updateProductDto,
     });
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.prisma.product.delete({ where: { id: id } });
   }
 }
